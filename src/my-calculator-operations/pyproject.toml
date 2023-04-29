@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["my_calculator"]
+namespaces = true
+
+[project]
+name = "my-calculator-operations"
+version = "0.0.1"
+description = "Operations for My Calculator "
+license = { text = "Calculator Software License Agreement" }
+dependencies = [
+    "my-calculator-add",
+    "my-calculator-multiply"
+]
+
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+isolated_build = true
+envlist = py, style
+
+[testenv]
+deps = pytest
+commands = pytest
+
+[testenv:style]
+skip_install = true
+"""

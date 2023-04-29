@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["my_calculator.basic"]
+namespaces = true
+
+[project]
+name = "my-calculator-add"
+version = "0.0.1"
+description = "Adder for My Calculator "
+license = { text = "Calculator Software License Agreement" }
+dynamic = ["dependencies"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+isolated_build = true
+envlist = py
+
+[testenv]
+deps = 
+    -r requirements.txt
+    pytest
+commands = pytest
+"""

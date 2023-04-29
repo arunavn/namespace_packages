@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["my_calculator"]
+namespaces = true
+
+[project]
+name = "my-calculator-multiply"
+version = "0.0.1"
+description = "Multilpier for My Calculator "
+license = { text = "Calculator Software License Agreement" }
+dependencies = [
+    "numpy"
+]
